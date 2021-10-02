@@ -8,7 +8,7 @@
 
 2. Change your directory and run these two commands
    <pre><code> cd camp-coffee-react-native
-	expo install
+	yarn install
 	expo start
    </code></pre>
 
