@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 import { Card } from 'react-native-elements';
+import { COFFEE_IMAGE_INFO } from '../shared/coffee-img-descrip';
 
 function RenderCoffeeInfo({ coffeeInfo }) {
   if (coffeeInfo) {
@@ -18,8 +19,22 @@ function RenderCoffeeInfo({ coffeeInfo }) {
   return <View />;
 }
 
-function CoffeeDetails(props) {
-  return <RenderCoffeeInfo coffeeInfo={props.coffeeInfo} />;
-}
+class CoffeeDetails extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      coffeeImageInfo: COFFEE_IMAGE_INFO
+    };
+  }
 
+  static navigationOptions = {
+    title: 'Coffee Details'
+  }
+  render() {
+    const coffeeInfoId = this.props.navigation.getParam('coffeeInfoId');
+    const coffeeInfo = this.state.coffeeImageInfo.filter(coffeeInfo => coffeeInfo.id === coffeeInfoId)[0];
+    return <RenderCoffeeInfo coffeeInfo={coffeeInfo} />;
+  }
+}
 export default CoffeeDetails;
+

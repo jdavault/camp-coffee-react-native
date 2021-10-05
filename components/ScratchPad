@@ -1,0 +1,21 @@
+ScratchPad
+  constructor(props) {
+    super(props);
+    this.state = {
+      coffeeImageInfo: COFFEE_IMAGE_INFO,
+      selectedCoffee: null
+    };
+  }
+
+  onCoffeeSelect(coffeeInfoId) {
+    this.setState({ selectedCoffee: coffeeInfoId });
+  }
+
+<View style={{ flex: 1 }}>
+  <Coffee coffeeImageInfo={this.state.coffeeImageInfo}
+    onPress={coffeeInfoId => this.onCoffeeSelect(coffeeInfoId)}
+  />
+  <CoffeeDetails
+    coffeeInfo={this.state.coffeeImageInfo.filter(
+      coffeeInfo => coffeeInfo.id === this.state.selectedCoffee)[0]}
+  />
