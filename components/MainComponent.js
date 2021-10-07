@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import Constants from 'expo-constants';
-import { View, Platform } from 'react-native';
+import { View, Platform, ScrollView } from 'react-native';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createDrawerNavigator } from "react-navigation-drawer"
 import { createAppContainer } from 'react-navigation';
 
+import Home from './HomeComponent';
 import Coffee from './CoffeeComponent';
 import CoffeeDetails from "./CoffeeDetailsComponent"
+import ContactUs from "./ContactUsComponent"
 
 const CoffeeInfoNavigator = createStackNavigator(
   {
     Coffee: { screen: Coffee },
-    CoffeeDetails: { screen: CoffeeDetails }
+    CoffeeDetails: { screen: CoffeeDetails },
+    ContactUs: { screen: ContactUs }
   },
   {
     initialRouteName: 'Coffee',
@@ -27,16 +30,52 @@ const CoffeeInfoNavigator = createStackNavigator(
   }
 );
 
-// const MainNavigator = createDrawerNavigator(
-//   {
-//     Coffee: { screen: CoffeeInfoNavigator }
-//   },
-//   {
-//     drawerBackgroundColor: "#CEC8FF"
-//   }
-// )
+const HomeNavigator = createStackNavigator(
+  {
+    Home: { screen: Home }
+  },
+  {
+    defaultNavigationOptions: {
+      headerStyle: {
+        backgroundColor: '#5637DD'
+      },
+      headerTintColor: '#fff',
+      headerTitleStyle: {
+        color: '#fff'
+      }
+    }
+  }
+);
 
-const AppNavigator = createAppContainer(CoffeeInfoNavigator);
+const ContactUsNavigator = createStackNavigator(
+  {
+    ContactUs: { screen: ContactUs }
+  },
+  {
+    defaultNavigationOptions: {
+      headerStyle: {
+        backgroundColor: '#5637DD'
+      },
+      headerTintColor: '#fff',
+      headerTitleStyle: {
+        color: '#fff'
+      }
+    }
+  }
+);
+
+const MainNavigator = createDrawerNavigator(
+  {
+    Home: { screen: HomeNavigator },
+    Coffee: { screen: CoffeeInfoNavigator },
+    "Contact Us": { screen: ContactUsNavigator }
+  },
+  {
+    drawerBackgroundColor: '#CEC8FF'
+  }
+);
+
+const AppNavigator = createAppContainer(MainNavigator);
 class Main extends Component {
 
   render() {

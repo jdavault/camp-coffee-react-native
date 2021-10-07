@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, FlatList, StyleSheet } from 'react-native'
+import { FlatList, StyleSheet } from 'react-native'
 import { ListItem } from "react-native-elements"
 import { COFFEE_IMAGE_INFO } from '../shared/coffee-img-descrip';
 
