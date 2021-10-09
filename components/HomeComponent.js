@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, ScrollView, StyleSheet } from 'react-native';
-import { Card } from 'react-native-elements';
+import { Card, } from 'react-native-elements';
 import { COFFEE_IMG_INFO } from '../shared/coffee-img-descrip';
 import { COFFEE_TYPE_DATA } from '../shared/coffee-type-data';
 import { COFFEE_SERVICE_DATA } from '../shared/coffee-service-data';

@@ -56,28 +56,28 @@ class ContactUs extends Component {
     return (
       <ScrollView>
         <SafeAreaView>
-          <Text>First Name</Text>
+          <Text style={styles.text}>First Name</Text>
           <TextInput
             style={styles.input}
             onChangeText={this.onChangeText}
             value={this.firstName}
             placeholder="First Name"
           />
-          <Text>Last Name</Text>
+          <Text style={styles.text}>Last Name</Text>
           <TextInput
             style={styles.input}
             onChangeText={this.onChangeText}
             value={this.lastName}
             placeholder="Last Name"
           />
-          <Text>Email</Text>
+          <Text style={styles.text}>Email</Text>
           <TextInput
             style={styles.input}
             onChangeText={this.onChangeText}
             value={this.email}
             placeholder="Email"
           />
-          <Text>Phone</Text>
+          <Text style={styles.text}>Phone</Text>
           <TextInput
             style={styles.input}
             onChangeText={this.onChangeText}
@@ -85,24 +85,25 @@ class ContactUs extends Component {
             placeholder="Phone Number"
             keyboardType="numeric"
           />
-          <Text>Address</Text>
+          <Text style={styles.text}>Address</Text>
           <TextInput
             style={styles.input}
             onChangeText={this.onChangeText}
             value={this.address}
             placeholder="Address"
           />
-          <Text>Message</Text>
+          <Text style={styles.text}>Message</Text>
           <TextInput
-            multiline
+            multiline={true}
             numberOfLines={4}
             onChangeText={this.onChangeText}
             value={this.message}
+            placeholder="Message"
             style={{ padding: 10 }}
           />
           <Button
             onPress={() =>
-              Alert.alert('Simple Button pressed')
+              Alert.alert('Your information has been submitted.')
             }
             title="Submit"
 
@@ -116,10 +117,17 @@ class ContactUs extends Component {
 const styles = StyleSheet.create({
   input: {
     height: 40,
-    margin: 12,
+    marginTop: 5,
+    marginBottom: 15,
+    marginLeft: 20,
+    marginRight: 20,
     borderWidth: 1,
     padding: 10,
   },
+  text: {
+    marginLeft: 20,
+    marginBottom: 0
+  }
 });
 
 export default ContactUs;
