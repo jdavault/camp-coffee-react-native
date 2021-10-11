@@ -58,28 +58,28 @@ class ContactUs extends Component {
         <SafeAreaView>
           <Text style={styles.text}>First Name</Text>
           <TextInput
-            style={styles.input}
+            style={[styles.input, styles.textInput]}
             onChangeText={this.onChangeText}
             value={this.firstName}
             placeholder="First Name"
           />
           <Text style={styles.text}>Last Name</Text>
           <TextInput
-            style={styles.input}
+            style={[styles.input, styles.textInput]}
             onChangeText={this.onChangeText}
             value={this.lastName}
             placeholder="Last Name"
           />
           <Text style={styles.text}>Email</Text>
           <TextInput
-            style={styles.input}
+            style={[styles.input, styles.textInput]}
             onChangeText={this.onChangeText}
             value={this.email}
             placeholder="Email"
           />
           <Text style={styles.text}>Phone</Text>
           <TextInput
-            style={styles.input}
+            style={[styles.input, styles.textInput]}
             onChangeText={this.onChangeText}
             value={this.phoneNum}
             placeholder="Phone Number"
@@ -87,20 +87,22 @@ class ContactUs extends Component {
           />
           <Text style={styles.text}>Address</Text>
           <TextInput
-            style={styles.input}
+            style={[styles.input, styles.textInput]}
             onChangeText={this.onChangeText}
             value={this.address}
             placeholder="Address"
           />
           <Text style={styles.text}>Message</Text>
-          <TextInput
-            multiline={true}
-            numberOfLines={4}
-            onChangeText={this.onChangeText}
-            value={this.message}
-            placeholder="Message"
-            style={{ padding: 10 }}
-          />
+          <View style={styles.messageContainer}>
+            <TextInput
+              style={[styles.input, styles.messageInput]}
+              multiline={true}
+              numberOfLines={5}
+              onChangeText={this.onChangeText}
+              value={this.message}
+              placeholder="Message"
+            />
+          </View>
           <Button
             onPress={() =>
               Alert.alert('Your information has been submitted.')
@@ -116,13 +118,23 @@ class ContactUs extends Component {
 
 const styles = StyleSheet.create({
   input: {
-    height: 40,
     marginTop: 5,
     marginBottom: 15,
     marginLeft: 20,
     marginRight: 20,
     borderWidth: 1,
     padding: 10,
+  },
+  textInput: {
+    height: 40
+  },
+  messageInput: {
+    height: 70
+  },
+  messageContainer: {
+    borderLeftWidth: 4,
+    borderRightWidth: 4,
+    borderColor: "black",
   },
   text: {
     marginLeft: 20,
