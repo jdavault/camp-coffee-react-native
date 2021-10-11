@@ -93,16 +93,14 @@ class ContactUs extends Component {
             placeholder="Address"
           />
           <Text style={styles.text}>Message</Text>
-          <View style={styles.messageContainer}>
-            <TextInput
-              style={[styles.input, styles.messageInput]}
-              multiline={true}
-              numberOfLines={5}
-              onChangeText={this.onChangeText}
-              value={this.message}
-              placeholder="Message"
-            />
-          </View>
+          <TextInput
+            style={[styles.input, styles.messageInput]}
+            multiline={true}
+            numberOfLines={5}
+            onChangeText={this.onChangeText}
+            value={this.message}
+            placeholder="Message"
+          />
           <Button
             onPress={() =>
               Alert.alert('Your information has been submitted.')
@@ -130,11 +128,6 @@ const styles = StyleSheet.create({
   },
   messageInput: {
     height: 70
-  },
-  messageContainer: {
-    borderLeftWidth: 4,
-    borderRightWidth: 4,
-    borderColor: "black",
   },
   text: {
     marginLeft: 20,
