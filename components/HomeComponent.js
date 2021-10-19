@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, ScrollView, StyleSheet } from 'react-native';
+import { View, Text, ScrollView, StyleSheet, Button } from 'react-native';
 import { Card, } from 'react-native-elements';
 import { COFFEE_IMG_INFO } from '../shared/coffee-img-descrip';
 import { COFFEE_TYPE_DATA } from '../shared/coffee-type-data';
@@ -37,9 +37,13 @@ class Home extends Component {
   }
 
   render() {
+    const { navigate } = this.props.navigation
     return (
       <ScrollView style={styles.container}>
-        <Text style={styles.text}>Coming Soon</Text>
+        <Text style={styles.text}>Coming Real Soon</Text>
+        <Button
+          title="Checkout our coffees"
+          onPress={() => navigate("Coffee")}></Button>
       </ScrollView>
     );
   }
