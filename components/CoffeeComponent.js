@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FlatList, StyleSheet } from 'react-native'
+import { FlatList, StyleSheet, View, Button } from 'react-native'
 import { ListItem } from "react-native-elements"
 import { COFFEE_IMAGE_INFO } from '../shared/coffee-img-descrip';
 
@@ -29,11 +29,17 @@ class Coffee extends Component {
       );
     };
     return (
-      <FlatList
-        data={this.state.coffeeImageInfo}
-        renderItem={renderCoffeeInfo}
-        keyExtractor={item => item.id.toString()}
-      />
+      <View>
+        <FlatList
+          data={this.state.coffeeImageInfo}
+          renderItem={renderCoffeeInfo}
+          keyExtractor={item => item.id.toString()}
+        />
+
+        <Button title="Back Home ..."
+          onPress={() => navigate("Home")}></Button>
+
+      </View>
     );
   }
 }
